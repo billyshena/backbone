@@ -3,7 +3,7 @@
 ### App Folder ### 
 /dist/
 /node_modules/
-//
+/bower_components/
 /test/coverage/
 /.idea/
 
