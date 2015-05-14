@@ -22,7 +22,12 @@ define([
 
         // First function
         index: function() {
-            console.log('initialize');
+
+            var self = this;
+            self.bind( "all", self.storeRoute );
+
+            var model = new Backbone.Model({ title: 'Title displated with ReactJS' });
+            React.render(new Header(model.toJSON()), document.body);
         },
 
 

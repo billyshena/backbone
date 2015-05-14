@@ -1,15 +1,14 @@
+/** @jsx React.DOM */
 define([
     'react'
 ], function (React) {
 
-    var CommentBox = React.createClass({displayName: "CommentBox",
+    var HelloMessage = React.createClass({displayName: "HelloMessage",
       render: function() {
-        return (
-          React.createElement("div", {className: "commentBox"}, 
-            "Hello, world! I am a CommentBox."
-          )
-        );
+        return React.createElement("div", null, "Hello World ", this.props.name);
       }
     });
+
+    React.render(React.createElement(HelloMessage, null), document.body);
 
 });

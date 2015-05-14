@@ -28,6 +28,9 @@ require.config({
         },
         'slider' : {
             exports: 'S'
+        },
+        'react' : {
+            exports: 'React'
         }
     },
 
