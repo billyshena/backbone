@@ -19,15 +19,12 @@ define([
         },
 
 
-        // First function
+        // Index: Home page
         index: function() {
 
             var self = this;
             self.bind( "all", self.storeRoute );
-
-            React.render(<Header />, document.body);
-
-
+            React.render( <Header />, document.body );
 
         },
 
@@ -49,7 +46,7 @@ define([
         },
 
 
-        // Error
+        // Default error function
         error: function() {
 
             console.log('404');
