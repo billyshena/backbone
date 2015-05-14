@@ -5,8 +5,11 @@ require.config({
     "template": "../bower_components/lodash-template-loader/loader",
     "jquery": "../bower_components/jquery/dist/jquery",
     "backbone": "../bower_components/backbone/backbone",
-    "react": "../bower_components/react/react",
-    "gsap": "../bower_components/gsap/src/minified/TweenMax.min"
+    "text": "../bower_components/requirejs-text/text",
+    "react": "../bower_components/react/react-with-addons",
+    "JSXTransformer": "../bower_components/jsx-requirejs-plugin/js/JSXTransformer",
+    "jsx": "../bower_components/jsx-requirejs-plugin/js/jsx",
+    "gsap": "../bower_components/gsap/src/minified/TweenMax"
   },
 
     shim: {

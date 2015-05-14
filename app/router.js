@@ -1,14 +1,13 @@
-
 define([
     "lodash",
     "jquery",
     "backbone",
     "react",
-    "modules/header/header"
+    "jsx!modules/header/header",
+    "JSXTransformer",
+    "jsx"
+], function(_, $, Backbone, React, Header, JSXTransformer, jsx) {
 
-], function(_, $, Backbone, React, Header) {
-
-    // Defining the application router.
 
     var Router = Backbone.Router.extend({
 
@@ -26,8 +25,10 @@ define([
             var self = this;
             self.bind( "all", self.storeRoute );
 
-            var model = new Backbone.Model({ title: 'Title displated with ReactJS' });
-            React.render(new Header(model.toJSON()), document.body);
+            React.render(<Header />, document.body);
+
+
+
         },
 
 
