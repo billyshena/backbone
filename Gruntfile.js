@@ -16,6 +16,21 @@ module.exports = function(grunt) {
             }
         },
 
+
+        react: {
+            jsx: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'app/modules',
+                        src: [ '**/*.jsx' ],
+                        dest: 'app/modules',
+                        ext: '.js'
+                    }
+                ]
+            }
+        },
+
         // This task uses James Burke's excellent r.js AMD builder to take all
         // modules and concatenate them into a single file.
         requirejs: {
@@ -133,8 +148,8 @@ module.exports = function(grunt) {
 
         watch: {
             scripts: {
-                files: ['app/**/*.js', 'app/styles/**/*.scss', 'app/**/*.html', 'index.html'],
-                tasks: ['jshint', 'sass'],
+                files: ['app/**/**/*.js', 'app/**/**/*.jsx', 'app/styles/**/*.scss', 'app/**/*.html', 'index.html'],
+                tasks: ['jshint', 'react', 'sass'],
                 options: {
                     livereload: true
                 }
@@ -175,6 +190,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks("grunt-bbb-requirejs");
     grunt.loadNpmTasks("grunt-bbb-styles");
+    grunt.loadNpmTasks("grunt-react");
 
     // When running the default Grunt command, just lint the code.
     grunt.registerTask("default", [

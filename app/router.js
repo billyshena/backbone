@@ -3,10 +3,10 @@ define([
     "lodash",
     "jquery",
     "backbone",
-    "react"
+    "react",
+    "modules/header/header"
 
-], function(_, $, Backbone, React) {
-
+], function(_, $, Backbone, React, Header) {
 
     // Defining the application router.
 

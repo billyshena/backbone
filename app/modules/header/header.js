@@ -1,3 +1,15 @@
-/**
- * Created by bshen on 14/05/15.
- */
+define([
+    'react'
+], function (React) {
+
+    var CommentBox = React.createClass({displayName: "CommentBox",
+      render: function() {
+        return (
+          React.createElement("div", {className: "commentBox"}, 
+            "Hello, world! I am a CommentBox."
+          )
+        );
+      }
+    });
+
+});
