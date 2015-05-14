@@ -1,19 +1,59 @@
-define(function(require, exports, module) {
-  "use strict";
 
-  // External dependencies.
-  var Backbone = require("backbone");
+define([
+    "lodash",
+    "jquery",
+    "backbone",
+    "react"
 
-  // Defining the application router.
-  var Router = Backbone.Router.extend({
-    routes: {
-      "": "index"
-    },
+], function(_, $, Backbone, React) {
 
-    index: function() {
-      console.log("Welcome to your / route.");
-    }
-  });
 
-  module.exports = Router;
+    // Defining the application router.
+
+    var Router = Backbone.Router.extend({
+
+        history: [],
+
+        // All Route
+        routes: {
+            "*path": "index"
+        },
+
+
+        // First function
+        index: function() {
+            console.log('initialize');
+        },
+
+
+        // Save route
+        storeRoute : function() {
+            var self = this;
+            self.currentView = Backbone.history.fragment;
+            self.history.push(self.currentView);
+        },
+
+
+
+        // Render view asked
+        render: function(module, submodule) {
+
+
+
+        },
+
+
+        // Error
+        error: function() {
+
+            console.log('404');
+
+        }
+
+
+
+    });
+
+    return Router;
+
 });
