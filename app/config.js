@@ -1,4 +1,5 @@
 require.config({
+
   paths: {
     "underscore": "../bower_components/lodash/dist/lodash.underscore",
     "lodash": "../bower_components/lodash/dist/lodash",
@@ -7,8 +8,6 @@ require.config({
     "backbone": "../bower_components/backbone/backbone",
     "text": "../bower_components/requirejs-text/text",
     "react": "../bower_components/react/react-with-addons",
-    "JSXTransformer": "../bower_components/jsx-requirejs-plugin/js/JSXTransformer",
-    "jsx": "../bower_components/jsx-requirejs-plugin/js/jsx",
     "gsap": "../bower_components/gsap/src/minified/TweenMax"
   },
 
@@ -36,6 +35,6 @@ require.config({
             exports: 'React'
         }
     },
-
   deps: ["main"]
+
 });

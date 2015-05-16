@@ -36,12 +36,13 @@ module.exports = function(grunt) {
         requirejs: {
             release: {
                 options: {
-                    mainConfigFile: "app/main.js",
+                    mainConfigFile: "app/config.js",
                     generateSourceMaps: true,
 
-                    // insertRequire: ["main"],
+
+                    baseUrl: 'app',
                     out: "dist/source.min.js",
-                    optimize: "uglify2",
+
 
                     // Since we bootstrap with nested `require` calls this option allows
                     // R.js to find them.
@@ -53,7 +54,6 @@ module.exports = function(grunt) {
                     // Setting the base url to the distribution directory allows the
                     // Uglify minification process to correctly map paths for Source
                     // Maps.
-                    baseUrl: "dist/app",
 
                     // Wrap everything in an IIFE.
                     wrap: true,
@@ -74,7 +74,7 @@ module.exports = function(grunt) {
             // development file path.
             "dist/styles.css": {
                 // Point this to where your `index.css` file is location.
-                src: "app/styles/index.css",
+                src: "app/styles/styles.css",
 
                 // The relative path to use for the @imports.
                 paths: ["app/styles"],

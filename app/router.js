@@ -3,11 +3,8 @@ define([
     "jquery",
     "backbone",
     "react",
-    "jsx!modules/header/header",
-    "JSXTransformer",
-    "jsx"
-], function(_, $, Backbone, React, Header, JSXTransformer, jsx) {
-
+    "modules/header/header"
+], function(_, $, Backbone, React, Header) {
 
     var Router = Backbone.Router.extend({
 
@@ -24,7 +21,8 @@ define([
 
             var self = this;
             self.bind( "all", self.storeRoute );
-            React.render( <Header />, document.body );
+
+            React.render(React.createElement(Header, {name: 'Billy Shen'}), document.getElementById('main'));
 
         },
 

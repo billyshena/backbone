@@ -11,6 +11,4 @@ define([
 
     return Header;
 
-
-
 });
