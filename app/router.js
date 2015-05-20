@@ -22,7 +22,7 @@ define([
             var self = this;
             self.bind( "all", self.storeRoute );
 
-            React.render(React.createElement(Header, {name: 'Billy Shen'}), document.getElementById('main'));
+            React.render(React.createElement(Header, { name: 'Billy Shen' }), document.getElementById('main'));
 
         },
 
