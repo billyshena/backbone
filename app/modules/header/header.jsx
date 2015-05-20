@@ -1,14 +1,13 @@
-/** @jsx React.DOM */
-define([
-    'react'
-], function (React) {
+var React = require('react');
 
-    var Header =  React.createClass({
-      render: function() {
-        return <div>Hello World {this.props.name}</div>;
-      }
-    });
-
-    return Header;
-
+var Header =  React.createClass({
+  render: function() {
+    return <div>Hello Worldd {this.props.name}</div>;
+  }
 });
+
+console.log('heredddddd');
+
+module.exports = Header;
+
+

@@ -33,35 +33,26 @@ module.exports = function(grunt) {
 
         // This task uses James Burke's excellent r.js AMD builder to take all
         // modules and concatenate them into a single file.
-        requirejs: {
-            release: {
-                options: {
-                    mainConfigFile: "app/config.js",
-                    generateSourceMaps: true,
+        browserify: {
+            dev: {
+                // A single entry point for our app
+                src: 'app/main.js',
+                // Compile to a single file to add a script tag for in your HTML
+                dest: 'dist/app.js',
 
-
-                    baseUrl: 'app',
-                    out: "dist/source.min.js",
-
-
-                    // Since we bootstrap with nested `require` calls this option allows
-                    // R.js to find them.
-                    findNestedDependencies: true,
-
-                    // Include a minimal AMD implementation shim.
-                    name: "almond",
-
-                    // Setting the base url to the distribution directory allows the
-                    // Uglify minification process to correctly map paths for Source
-                    // Maps.
-
-                    // Wrap everything in an IIFE.
-                    wrap: true,
-
-                    // Do not preserve any license comments when working with source
-                    // maps.  These options are incompatible.
-                    preserveLicenseComments: false
+                options : {
+                    watch : true, // use watchify for incremental builds!
+                    keepAlive : true, // watchify will exit unless task is kept alive
+                    browserifyOptions : {
+                        debug : true // source mapping
+                    }
                 }
+
+            },
+            dist: {
+                src: 'app/main.js',
+                // Compile to a single file to add a script tag for in your HTML
+                dest: 'dist/app.js'
             }
         },
 
@@ -192,12 +183,14 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-bbb-styles");
     grunt.loadNpmTasks("grunt-react");
 
+    grunt.loadNpmTasks('grunt-browserify');
+
     // When running the default Grunt command, just lint the code.
     grunt.registerTask("default", [
         "clean",
         "processhtml",
         "copy",
-        "requirejs",
+        "browserify:dist",
         "styles",
         "cssmin",
         "jshint"
@@ -208,4 +201,8 @@ module.exports = function(grunt) {
         "connect",
         "watch"
     ]);
+
+
+
+
 };

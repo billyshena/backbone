@@ -1,60 +1,56 @@
-define([
-    "lodash",
-    "jquery",
-    "backbone",
-    "react",
-    "modules/header/header"
-], function(_, $, Backbone, React, Header) {
 
-    var Router = Backbone.Router.extend({
+var _ = require('lodash');
+var $ = require('jquery');
+var Backbone = require('backbone');
+var React = require('react');
+var Header = require('./modules/header/header');
 
-        history: [],
+var Router = Backbone.Router.extend({
+    history: [],
 
-        // All Route
-        routes: {
-            "*path": "index"
-        },
+    // All Route
+    routes: {
+        "*path": "index"
+    },
 
 
-        // Index: Home page
-        index: function() {
+    // Index: Home page
+    index: function() {
 
-            var self = this;
-            self.bind( "all", self.storeRoute );
+        var self = this;
+        self.bind( "all", self.storeRoute );
 
-            React.render(React.createElement(Header, { name: 'Billy Shen' }), document.getElementById('main'));
+        React.render(React.createElement(Header, { name: 'Billy Shen' }), document.getElementById('main'));
 
-        },
+    },
 
 
-        // Save route
-        storeRoute : function() {
-            var self = this;
-            self.currentView = Backbone.history.fragment;
-            self.history.push(self.currentView);
-        },
+    // Save route
+    storeRoute : function() {
+        var self = this;
+        self.currentView = Backbone.history.fragment;
+        self.history.push(self.currentView);
+    },
 
 
 
-        // Render view asked
-        render: function(module, submodule) {
+    // Render view asked
+    render: function(module, submodule) {
 
 
 
-        },
+    },
 
 
-        // Default error function
-        error: function() {
+    // Default error function
+    error: function() {
 
-            console.log('404');
+        console.log('404');
 
-        }
+    }
 
 
-
-    });
-
-    return Router;
 
 });
+
+module.exports = Router;
