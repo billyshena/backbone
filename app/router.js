@@ -3,9 +3,11 @@ var _ = require('lodash');
 var $ = require('jquery');
 var Backbone = require('backbone');
 var React = require('react');
-var Header = require('./modules/header/header');
+var Header = require('./modules/header/header.jsx');
+
 
 var Router = Backbone.Router.extend({
+
     history: [],
 
     // All Route

@@ -40,11 +40,14 @@ module.exports = function(grunt) {
                 // Compile to a single file to add a script tag for in your HTML
                 dest: 'dist/app.js',
 
+
                 options : {
                     watch : true, // use watchify for incremental builds!
-                    keepAlive : true, // watchify will exit unless task is kept alive
                     browserifyOptions : {
-                        debug : true // source mapping
+                        debug : true, // source mapping,
+                        transform: ['reactify'],
+                        extensions: ['.jsx']
+
                     }
                 }
 
@@ -198,6 +201,7 @@ module.exports = function(grunt) {
 
     // Start server
     grunt.registerTask("server", [
+        "browserify:dev",
         "connect",
         "watch"
     ]);
