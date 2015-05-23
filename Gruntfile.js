@@ -44,7 +44,6 @@ module.exports = function(grunt) {
                 options : {
                     watch : true, // use watchify for incremental builds!
                     browserifyOptions : {
-                        debug : true, // source mapping,
                         transform: ['reactify'],
                         extensions: ['.jsx']
 
