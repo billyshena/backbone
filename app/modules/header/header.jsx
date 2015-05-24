@@ -5,7 +5,6 @@ var Header =  React.createClass({
     return <div>Hello Wodd {this.props.name}</div>;
   }
 });
-console.log('ok');
 
 module.exports = Header;
 

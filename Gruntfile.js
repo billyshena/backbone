@@ -17,19 +17,6 @@ module.exports = function(grunt) {
         },
 
 
-        react: {
-            jsx: {
-                files: [
-                    {
-                        expand: true,
-                        cwd: 'app/modules',
-                        src: [ '**/*.jsx' ],
-                        dest: 'app/modules',
-                        ext: '.js'
-                    }
-                ]
-            }
-        },
 
         // This task uses James Burke's excellent r.js AMD builder to take all
         // modules and concatenate them into a single file.
@@ -44,7 +31,7 @@ module.exports = function(grunt) {
                 options : {
                     watch : true, // use watchify for incremental builds!
                     browserifyOptions : {
-                        transform: ['reactify'],
+                        transform: [ require('grunt-react').browserify ],
                         extensions: ['.jsx']
 
                     }
@@ -142,7 +129,7 @@ module.exports = function(grunt) {
         watch: {
             scripts: {
                 files: ['app/**/**/*.js', 'app/**/**/*.jsx', 'app/styles/**/*.scss', 'app/**/*.html', 'index.html'],
-                tasks: ['react', 'sass'],
+                tasks: ['sass'],
                 options: {
                     livereload: true
                 }
