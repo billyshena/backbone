@@ -87,6 +87,14 @@ module.exports = function(grunt) {
             }
         },
 
+
+        // UNIT TESTING
+        karma: {
+            unit: {
+                configFile: 'karma.conf.js'
+            }
+        },
+
         processhtml: {
             release: {
                 files: {
@@ -129,7 +137,7 @@ module.exports = function(grunt) {
         watch: {
             scripts: {
                 files: ['app/**/**/*.js', 'app/**/**/*.jsx', 'app/styles/**/*.scss', 'app/**/*.html', 'index.html'],
-                tasks: ['sass', 'jshint'],
+                tasks: ['sass', 'jshint', 'karma'],
                 options: {
                     livereload: true
                 }
@@ -173,6 +181,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-react");
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-jsxhint');
+    grunt.loadNpmTasks('grunt-karma');
 
     // When running the default Grunt command, just lint the code.
     grunt.registerTask("default", [
