@@ -10,7 +10,7 @@ module.exports = function(grunt) {
 
         // Run your source code through JSHint's defaults.
         jshint: {
-            all : ["app/**/*.js"],
+            all : ["app/modules/**/*.jsx"],
             options: {
                 smarttabs: true
             }
@@ -129,7 +129,7 @@ module.exports = function(grunt) {
         watch: {
             scripts: {
                 files: ['app/**/**/*.js', 'app/**/**/*.jsx', 'app/styles/**/*.scss', 'app/**/*.html', 'index.html'],
-                tasks: ['sass'],
+                tasks: ['sass', 'jshint'],
                 options: {
                     livereload: true
                 }
@@ -171,8 +171,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks("grunt-bbb-requirejs");
     grunt.loadNpmTasks("grunt-bbb-styles");
     grunt.loadNpmTasks("grunt-react");
-
     grunt.loadNpmTasks('grunt-browserify');
+    grunt.loadNpmTasks('grunt-jsxhint');
 
     // When running the default Grunt command, just lint the code.
     grunt.registerTask("default", [

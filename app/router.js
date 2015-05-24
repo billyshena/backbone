@@ -12,19 +12,31 @@ var Router = Backbone.Router.extend({
 
     // All Route
     routes: {
+        "home": "home",
         "*path": "index"
+
     },
 
 
-    // Index: Home page
-    index: function() {
+    // Store all the routes for the history (when prev button is fired in the browser)
+    initialize: function() {
 
         var self = this;
         self.bind( "all", self.storeRoute );
 
-        React.render(React.createElement(Header, { name: 'Billy Shen' }), document.getElementById('main'));
+    },
 
 
+    index: function() {
+
+        React.render(React.createElement(Header, { name: 'Default message' }), document.getElementById('main'));
+
+    },
+
+
+    // Example function fired when visiting /home url
+    home: function() {
+        console.log('say hi');
     },
 
 
